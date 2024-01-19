@@ -3,11 +3,14 @@ const express=require('express');
 const dotenv=require('dotenv');
 const path=require('path');
 const multer=require('multer');
+const bodyParser=require('body-parser');
 
 const app=express();
 dotenv.config();
 const PORT=process.env.PORT||8800;
+app.use(bodyParser.urlencoded({extended:true}));
 
+// file uplod folder name
 const UPlode='./UPlodes/';
 
 const storage=multer.diskStorage({
